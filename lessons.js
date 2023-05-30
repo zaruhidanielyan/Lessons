@@ -1,3 +1,131 @@
+//Homework 5
+1.
+function isPrime(number) {
+  let absNumber = Math.abs(number)
+  if (absNumber % 2 == 0 && absNumber != 2) {
+    return false
+  }
+  for (let i = 3; i < absNumber; i++) {
+    if (absNumber % i == 0) {
+      return false
+    }
+  }
+  return true
+}
+
+2.
+function allPrimeNumbers(num) {
+  let primeNumbers = '';
+
+  for (let i = 2; i <= num; i++) {
+    let isPrime = true;
+
+    for (let j = 2; j < i; j++) {
+      if (i % j === 0) {
+        isPrime = false;
+        break;
+      }
+    }
+
+    if (isPrime) {
+      primeNumbers += i;
+    }
+  }
+
+  return primeNumbers;
+}
+
+console.log(allPrimeNumbers(9));
+
+3.
+function sumOfLargestNumbers(string) {
+  let sum = 0;
+  let largest = -Infinity;
+  let currentNumber = '';
+
+  for (let i = 0; i < string.length; i++) {
+    const char = string[i];
+
+    if (isDigit(char)) {
+      currentNumber += char;
+    } else if (currentNumber !== '') {
+      const num = Number(currentNumber);
+
+      if (num > largest) {
+        largest = num;
+        sum = num;
+      } else if (num === largest) {
+        sum += num;
+      }
+
+      currentNumber = '';
+    }
+  }
+
+  if (currentNumber !== '') {
+    const num = Number(currentNumber);
+
+    if (num > largest) {
+      largest = num;
+      sum = num;
+    } else if (num === largest) {
+      sum += num;
+    }
+  }
+
+  return sum;
+}
+
+function isDigit(char) {
+  return char >= '0' && char <= '9';
+}
+
+console.log(sumOfLargestNumbers('FwrtY45KHL120mn10P'))
+
+4.
+function removeStringAppearances(mainString, removeString) {
+  let result = '';
+  let currentIndex = 0;
+  const removeStringLength = removeString.length;
+
+  while (currentIndex < mainString.length) {
+    let match = true;
+
+    for (let i = 0; i < removeStringLength; i++) {
+      if (mainString[currentIndex + i] !== removeString[i]) {
+        match = false;
+        break;
+      }
+    }
+
+    if (match) {
+      currentIndex += removeStringLength;
+    } else {
+      result += mainString[currentIndex];
+      currentIndex++;
+    }
+  }
+
+  return result;
+}
+console.log(removeStringAppearances("This is some text", "is"))
+
+5.
+function rearrangeString(string) {
+  let result = '';
+
+  for (let i = 0; i < string.length; i += 3) {
+    if (i + 2 < string.length) {
+      result += string[i + 1] + string[i + 2] + string[i];
+    } else {
+      result += string.substring(i);
+    }
+  }
+
+  return result;
+}
+console.log(rearrangeString('dfgjkloyp'))
+
 //Homework4
 
 function numberOfOccurances(string, symbol) {
