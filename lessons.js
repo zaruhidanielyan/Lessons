@@ -1,3 +1,56 @@
+//Homework 6 
+function newObject(obj) {
+  const newObj = {}
+  for (let key in obj) {
+    let value = obj[key];
+    if (value in newObj) {
+      newObj[value] += `, ${key}`;
+    } else {
+      newObj[value] = key;
+    }
+  }
+  return newObj
+}
+
+function shallowCompare(a, b) {
+  const keys1 = Object.keys(a);
+  const keys2 = Object.keys(b);
+
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  for (let key of keys1) {
+    if (a[key] !== b[key]) {
+      return false;
+    }
+  }
+
+  return true;
+}
+var a = { a: '1', b: '5' };
+var b = { a: '1', b: '2' };
+console.log(shallowCompare(a, b));
+
+function isIsogram(str) {
+  let letterCounts = {};
+
+  for (let letter of str) {
+    if (letterCounts[letter]) {
+      console.log(`${str} is not an isogram.`);
+      return false;
+    }
+    letterCounts[letter] = 1;
+  }
+
+  console.log(`${str} is an isogram.`);
+  return true;
+}
+
+console.log(isIsogram('Hi hi'));
+
+
+
 //Homework 5
 1.
 function isPrime(number) {
@@ -118,7 +171,7 @@ function rearrangeString(string) {
     if (i + 2 < string.length) {
       result += string[i + 1] + string[i + 2] + string[i];
     } else {
-      result += string.substring(i);
+      result += string[i];
     }
   }
 
