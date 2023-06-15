@@ -1,3 +1,51 @@
+//Homework 7
+function push(arr, el) {
+  arr[arr.length] = el
+  return arr
+}
+
+
+function unshift(arr, el) {
+  for (let i = arr.length - 1; i >= 0; i--) {
+    arr[i + 1] = arr[i]
+  }
+  arr[0] = el
+  return arr
+}
+
+function shift(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = arr[i + 1]
+  }
+  arr.length = arr.length - 1
+  return arr
+}
+
+function pop(arr) {
+  arr.length = arr.length - 1
+  return arr
+}
+
+function includes(arr, el) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === el) {
+      return true
+    }
+  }
+  return false
+}
+
+function join(arr, separator) {
+  let result = "";
+  for (let i = 0; i < arr.length; i++) {
+    result += arr[i];
+    if (i !== arr.length - 1) {
+      result += separator;
+    }
+  }
+  return result;
+}
+
 //Homework 6 
 function newObject(obj) {
   const newObj = {}
