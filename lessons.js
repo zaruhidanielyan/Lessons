@@ -1,3 +1,93 @@
+//Homework 8
+function uniqueArray(arr) {
+  let numbers = {};
+  for (let i = 0; i < arr.length; i++) {
+    if (numbers[arr[i]] === 1) {
+      console.log('Array consists NOT only of unique elements');
+      return;
+    }
+    numbers[arr[i]] = 1;
+  }
+  console.log('Array consists only of unique elements');
+}
+
+let arr = [1, 2, 3, 4, 5, 6, 7]
+uniqueArray(arr)
+
+
+function missingNumbers(arr) {
+  let count = 0;
+  let maxNumber = Math.max.apply(Math, arr);
+  let minNumber = Math.min.apply(Math, arr);
+
+  for (let i = minNumber + 1; i < maxNumber; i++) {
+    if (!arr.includes(i)) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+const arr = [1, 5, 8, 7, 3, 10];
+console.log(missingNumbers(arr));
+
+
+
+function CoffeeShop(name, menu) {
+  this.name: name;
+  this.menu: menu;
+  this.orders = [];
+
+  this.addOrder = function (item) {
+    const menuItem = this.menu.find(menuItem => menuItem.item == item)
+    if (menuItem) {
+      this.orders.push(item);
+    } else {
+      return "This item is currently unavailable!";
+    }
+  }
+
+  this.fulfillOrder = function () {
+    if (this.orders.length > 0) {
+      return 'The {item} is ready!'
+    } else {
+      return 'All orders have been fulfilled'
+    }
+  }
+
+  this.listOrders = function () {
+    return this.orders;
+  }
+  this.dueAmount = function () {
+    let totalAmount = 0;
+    for (let item of this.orders) {
+      const menuItem = this.menu.find(menuItem => menuItem.item == item)
+      if (menuItem) {
+        totalAmount += menuItem.price;
+      }
+    }
+    return totalAmount;
+  }
+
+  this.cheaestItem = function () {
+    for (let menuItem of this.menu) {
+
+    }
+
+    return cheapest.item
+  }
+  this.drinksOnly = function () {
+    return this.menu.filter(menuItem => menuItem.type = 'drink')
+  }
+
+  this.foodOnly = function () {
+    return this.menu.filter(menuItem => menuItem.type = 'food')
+  }
+
+}
+
+
 //Homework 7
 function push(arr, el) {
   arr[arr.length] = el
@@ -14,11 +104,12 @@ function unshift(arr, el) {
 }
 
 function shift(arr) {
-  for (let i = 0; i < arr.length; i++) {
+  let siftElement = arr[0]
+  for (let i = 0; i < arr.length - 1; i++) {
     arr[i] = arr[i + 1]
   }
   arr.length = arr.length - 1
-  return arr
+  return siftElement
 }
 
 function pop(arr) {
