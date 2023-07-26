@@ -1,4 +1,33 @@
-//Homework 8
+//Homework 10
+function find(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i], i, array)) {
+      return array[i];
+    }
+  }
+  return undefined;
+}
+
+function findIndex(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i], i, array)) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+function filter(array, callback) {
+  const filteredArray = [];
+  for (let i = 0; i < array.length; i++) {
+    if (callback(array[i], i, array)) {
+      filteredArray.push(array[i]);
+    }
+  }
+  return filteredArray;
+}
+
+//Homework 9
 function uniqueArray(arr) {
   let numbers = {};
   for (let i = 0; i < arr.length; i++) {
@@ -17,8 +46,8 @@ uniqueArray(arr)
 
 function missingNumbers(arr) {
   let count = 0;
-  let maxNumber = Math.max.apply(Math, arr);
-  let minNumber = Math.min.apply(Math, arr);
+  let maxNumber = Math.max(...arr);
+  let minNumber = Math.min(...arr);
 
   for (let i = minNumber + 1; i < maxNumber; i++) {
     if (!arr.includes(i)) {
@@ -71,11 +100,14 @@ function CoffeeShop(name, menu) {
   }
 
   this.cheaestItem = function () {
+    let seeItem = this.menu[0]
     for (let menuItem of this.menu) {
-
+      if (this.menu[i].price < seeItem.price) {
+        seeItem = this.menu[i]
+      }
     }
 
-    return cheapest.item
+    return seeItem.name
   }
   this.drinksOnly = function () {
     return this.menu.filter(menuItem => menuItem.type = 'drink')
