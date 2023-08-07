@@ -1,3 +1,130 @@
+////Homework 12
+//1.
+arr = [
+  {
+    name: 'Davit',
+    surname: 'Margaryan',
+    age: 30,
+    gender: 'male'
+  },
+  {
+    name: 'Armen',
+    surname: 'Julhakyan',
+    age: 28,
+    gender: 'male'
+  },
+  {
+    name: 'Hrachya',
+    surname: 'Khachatryan',
+    age: 27,
+    gender: 'male'
+  },
+  {
+    name: 'Larisa',
+    surname: 'Shahnazaryan',
+    age: 23,
+    gender: 'female'
+  },
+  {
+    name: 'Tatev',
+    surname: 'Azaryan',
+    age: 24,
+    gender: 'female'
+  },
+  {
+    name: 'Zaruhi',
+    surname: 'Danielyan',
+    age: 24,
+    gender: 'female'
+  },
+  {
+    name: 'Areg',
+    surname: 'Alaverdyan',
+    age: 29,
+    gender: 'male'
+  },
+  {
+    name: 'Henri',
+    surname: 'Engibaryan',
+    age: 20,
+    gender: 'male'
+  }
+]
+//1.1
+const newMap = new Map();
+for (let person of arr) {
+  const key = ['name', 'surname', 'age', 'gender'];
+  const value = [person.name, person.surname, person.age, person.gender];
+  newMap.set(key, value);
+}
+
+
+//1.2
+arr.map(person => [['name', 'surname', 'age', 'gender'], [person.name, person.surname, person.age, person.gender]]);
+
+//2. 
+Obj = {
+  ...arr = [
+    {
+      name: 'Davit',
+      surname: 'Margaryan',
+      age: 30,
+      gender: 'male'
+    },
+    {
+      name: 'Armen',
+      surname: 'Julhakyan',
+      age: 28,
+      gender: 'male'
+    },
+    {
+      name: 'Hrachya',
+      surname: 'Khachatryan',
+      age: 27,
+      gender: 'male'
+    },
+    {
+      name: 'Larisa',
+      surname: 'Shahnazaryan',
+      age: 23,
+      gender: 'female'
+    },
+    {
+      name: 'Tatev',
+      surname: 'Azaryan',
+      age: 24,
+      gender: 'female'
+    },
+    {
+      name: 'Zaruhi',
+      surname: 'Danielyan',
+      age: 24,
+      gender: 'female'
+    },
+    {
+      name: 'Areg',
+      surname: 'Alaverdyan',
+      age: 29,
+      gender: 'male'
+    },
+    {
+      name: 'Henri',
+      surname: 'Engibaryan',
+      age: 20,
+      gender: 'male'
+    }
+  ]
+}
+
+
+//3.
+let newArr = []
+for (let person of arr) {
+  newArr.push(person.name + ' ' + person.surname)
+  newArr.push([person.age, person.gender])
+}
+
+
 //Homework 10
 function find(array, callback) {
   for (let i = 0; i < array.length; i++) {
